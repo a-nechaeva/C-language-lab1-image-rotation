@@ -21,14 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f69ed46e-722c-4172-96cf-072d3e1bd7d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/solution/include/transform/rotate.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solution/src/transform/rotate.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/solution/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/src/bmp_read/bmp_reader.c" beforeDir="false" afterPath="$PROJECT_DIR$/solution/src/bmp_read/bmp_reader.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/src/bmp_read/bmp_reader.h" beforeDir="false" afterPath="$PROJECT_DIR$/solution/include/bmp_read/bmp_reader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/src/image/image.c" beforeDir="false" afterPath="$PROJECT_DIR$/solution/src/image/image.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solution/src/image/image.h" beforeDir="false" afterPath="$PROJECT_DIR$/solution/include/image/image.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +120,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698396185632</updated>
       <workItem from="1698396187949" duration="1771000" />
-      <workItem from="1698407515239" duration="10198000" />
+      <workItem from="1698407515239" duration="10831000" />
     </task>
     <servers />
   </component>
