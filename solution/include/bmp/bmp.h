@@ -9,8 +9,7 @@
 #include "image/image.h"
 #include "file_work/file_work.h"
 
-enum input_state from_bmp(FILE* in, struct image* img );
-
-enum output_state to_bmp( FILE* out, struct image const* img );
+enum input_state from_bmp_to_image(FILE* in, struct image* img );
+enum output_state from_image_to_bmp(FILE * out, struct image * img);
 
 #endif //IMAGE_TRANSFORMER_BMP_H

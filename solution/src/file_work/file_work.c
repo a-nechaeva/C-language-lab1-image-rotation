@@ -24,6 +24,8 @@ const char * output_state_m[] = {
     [OUTPUT_FILE_WRITE_FAIL] = "Ошибка записи данных в файл :(",
     [FILE_WRITE_SUCCESS] = "Запись в файл прошла успешно! ^..^",
     [OUTPUT_FILE_CLOSE_FAIL] = "Не удается закрыть файл с записанными данными :(",
+    [BMP_HEADER_WRITE_FAIL] = "Ошибка при записи заголовка BMP файла :(",
+    [BMP_IMAGE_WRITE_FAIL] = "Ошибка при записи данных картинки в BMP файл"
 };
 
 void print_success(const char * m) {

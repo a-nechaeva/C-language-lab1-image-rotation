@@ -25,6 +25,8 @@ enum output_state {
     OUTPUT_FILE_WRITE_FAIL,
     FILE_WRITE_SUCCESS,
     OUTPUT_FILE_CLOSE_FAIL,
+    BMP_HEADER_WRITE_FAIL,
+    BMP_IMAGE_WRITE_FAIL
 };
 
 void print_success(const char * m);

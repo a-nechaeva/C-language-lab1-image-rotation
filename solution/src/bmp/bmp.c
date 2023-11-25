@@ -40,11 +40,15 @@ struct bmp_header bmp_header_reader(FILE * input_f) {
     return header;
 }
 
+static uint32_t get_padding(uint32_t width) {
+    return width % 4;
+}
+
 enum input_state bmp_image_data_reader(FILE * input_f, struct image * image) {
     for (size_t i = 0; i < image -> height; ++i) {
         uint32_t width = image -> width;
         if ((fread(&image -> pixels[i * width], sizeof(struct pixel), width, input_f) != width)
-                || (fseek(input_f, width % 4, SEEK_CUR) != 0)) {
+                || (fseek(input_f, get_padding(width), SEEK_CUR) != 0)) {
             return BMP_IMAGE_READ_FAIL;
         }
     }
@@ -52,7 +56,7 @@ enum input_state bmp_image_data_reader(FILE * input_f, struct image * image) {
 }
 
 
-enum input_state from_bmp(FILE* in, struct image* img ) {
+enum input_state from_bmp_to_image(FILE* in, struct image* img ) {
     struct bmp_header header = bmp_header_reader(in);
     if (header.bits_per_pix != DEFAULT_BITS_PER_PIXEL) {
         return BMP_HEADER_READ_FAIL;
@@ -70,5 +74,52 @@ enum input_state from_bmp(FILE* in, struct image* img ) {
     return FILE_READ_SUCCESS;
 }
 
+static struct bmp_header generate_header(uint32_t width, uint32_t height) {
+
+    return (struct bmp_header) {
+            .file_type = 0x4d42,
+            .file_size = sizeof(struct bmp_header) + sizeof(struct pixel) *
+                                                     height * (width + get_padding(width)),
+            .reserved = 0,
+            .start_data = sizeof(struct bmp_header),
+            .size_of_header = 40,
+            .width = width,
+            .height = height,
+            .color_planes = 1,
+            .bits_per_pix = 24,
+            .compression = 0,
+            .size__of_image = 0,
+            .x_pixels_per_meter = 0,
+            .y_pixels_per_meter = 0,
+            .colors_used = 0,
+            .important_colors = 0
+    };
+}
+
+enum output_state bmp_image_data_writer(FILE * output_f, struct image * image) {
+    for (size_t i = 0; i < image -> height; ++i) {
+        uint32_t width = image -> width;
+        if ((fwrite(&image -> pixels[i * width], sizeof(struct pixel), width, output_f) != width)
+            || (fseek(output_f, get_padding(width), SEEK_CUR) != 0)) {
+            return BMP_IMAGE_WRITE_FAIL;
+        }
+    }
+    return FILE_WRITE_SUCCESS;
+}
+
+enum output_state from_image_to_bmp(FILE * out, struct image * img) {
+    uint32_t width = img -> width;
+    uint32_t height = img -> height;
+    struct bmp_header new_header = generate_header(width, height);
+    size_t count = 1;
+    if (fwrite(&new_header, sizeof(struct bmp_header), count, out) != count) {
+        return BMP_HEADER_WRITE_FAIL;
+    }
+    enum output_state write_image_st = bmp_image_data_writer(out, img);
+    if (write_image_st != FILE_WRITE_SUCCESS) {
+        return write_image_st;
+    }
+    return FILE_WRITE_SUCCESS;
+}
 
 
