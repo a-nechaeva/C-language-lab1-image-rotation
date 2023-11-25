@@ -11,9 +11,10 @@ struct image {
     uint64_t width, height;
     struct pixel * pixels;
 };
-
+/*
 struct pixel {
     uint8_t b, g, r;
 };
+ */
 
 #endif //IMAGE_TRANSFORMER_IMAGE_H
