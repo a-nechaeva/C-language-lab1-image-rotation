@@ -7,8 +7,7 @@
 
 enum input_state {
     NOT_ENOUGH_ARGS,
-    TOO_MANY_ARGS,
-    CORRECT_NUMBER_ARGS
+    TOO_MANY_ARGS
 };
 
 enum input_file_state {
@@ -25,9 +24,9 @@ enum output_file_state {
     OUTPUT_FILE_CLOSE_FAIL,
 };
 
-void print_success(char * m);
+void print_success(const char * m);
 
-void print_fail(char * e);
+void print_fail(const char * e);
 
 
 #endif //IMAGE_TRANSFORMER_FILE_WORK_H
