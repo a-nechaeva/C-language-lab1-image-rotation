@@ -7,6 +7,7 @@
 extern const char * args_state_m[];
 extern const char * input_state_m[];
 extern const char * output_state_m[];
+extern const char * transform_state_m[];
 
 int main( int argc, char** argv ) {
 
@@ -36,7 +37,11 @@ int main( int argc, char** argv ) {
     if (read_and_create_image == FILE_READ_SUCCESS) {
         print_success(input_state_m[FILE_READ_SUCCESS]);
         //здесь вызов функции поворота картинки
-        
+        struct image * rotate_image = malloc(sizeof(struct image));
+        enum transform_state state_of_rotation = rotation(input_image, rotate_image);
+        if (state_of_rotation != ROTATION_SUCCESS) {
+            print_fail(transform_state_m[state_of_rotation]);
+        }
     } else {
         print_fail(input_state_m[read_and_create_image]);
         return 1;

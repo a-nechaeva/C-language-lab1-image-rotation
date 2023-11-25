@@ -29,6 +29,11 @@ enum output_state {
     BMP_IMAGE_WRITE_FAIL
 };
 
+enum transform_state {
+    ROTATION_FAIL,
+    ROTATION_SUCCESS
+};
+
 void print_success(const char * m);
 
 void print_fail(const char * e);

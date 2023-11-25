@@ -28,6 +28,11 @@ const char * output_state_m[] = {
     [BMP_IMAGE_WRITE_FAIL] = "Ошибка при записи данных картинки в BMP файл"
 };
 
+const char * transform_state_m[] = {
+    [ROTATION_FAIL] = "Возникла ошибка при повороте картинки :(",
+    [ROTATION_SUCCESS] = "Поворот картинки осуществлен успешно! ^. .^ "
+};
+
 void print_success(const char * m) {
     fprintf(stdout, "%s", m);
 }
