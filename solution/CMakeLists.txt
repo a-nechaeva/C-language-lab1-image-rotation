@@ -10,5 +10,7 @@ add_executable(image-transformer ${sources}
         src/image/image.c
         include/image/image.h
         src/transform/rotate.c
-        include/transform/rotate.h)
+        include/transform/rotate.h
+        src/file_work/file_work.c
+        include/file_work/file_work.h)
 target_include_directories(image-transformer PRIVATE src include)
