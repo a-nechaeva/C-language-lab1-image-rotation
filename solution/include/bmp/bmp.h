@@ -11,6 +11,6 @@
 
 enum input_state from_bmp(FILE* in, struct image* img );
 
-enum output_file_state to_bmp( FILE* out, struct image const* img );
+enum output_state to_bmp( FILE* out, struct image const* img );
 
 #endif //IMAGE_TRANSFORMER_BMP_H
