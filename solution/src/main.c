@@ -29,6 +29,9 @@ int main( int argc, char** argv ) {
 
     struct image input_image = {0};
     // здесь процесс чтения из файла и сохранения данных в структуре
+    print_success(input_state[FILE_READ_SUCCESS]);
+
+    //здесь вызов функции поворота картинки
 
     if (fclose(input_file) == -1) {
         print_fail(input_state[INPUT_FILE_CLOSE_FAIL]);
@@ -42,10 +45,12 @@ int main( int argc, char** argv ) {
     }
     // здесь процесс записи в файл
 
+    print_success(output_state[FILE_WRITE_SUCCESS]);
+
     if (fclose(output_file) == -1) {
         print_fail(output_state[OUTPUT_FILE_CLOSE_FAIL]);
         return -1;
     }
-    
+
     return 0;
 }
