@@ -40,6 +40,17 @@ struct bmp_header bmp_header_reader(FILE * input_f) {
     return header;
 }
 
+enum input_state bmp_image_data_reader(FILE * input_f, struct image * image) {
+    for (size_t i = 0; i < image -> height; ++i) {
+        uint32_t width = image -> width;
+        if ((fread(&image -> pixels[i * width], sizeof(struct pixel), width, input_f) != width)
+                || (fseek(input_f, width % 4, SEEK_CUR) != 0)) {
+            return BMP_IMAGE_READ_FAIL;
+        }
+    }
+    return FILE_READ_SUCCESS;
+}
+
 
 enum input_state from_bmp(FILE* in, struct image* img ) {
     struct bmp_header header = bmp_header_reader(in);
@@ -51,12 +62,13 @@ enum input_state from_bmp(FILE* in, struct image* img ) {
     //uint32_t padding
     *img = create_space_for_image(orig_image_width, orig_image_height);
 
-    for (size_t i = 0; i < orig_image_height; i++) {
-        
+    enum input_state state_read = bmp_image_data_reader(in, img);
+    if ( state_read != FILE_READ_SUCCESS) {
+        return state_read;
     }
-
-
 
     return FILE_READ_SUCCESS;
 }
+
+
 

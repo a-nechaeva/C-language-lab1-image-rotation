@@ -14,7 +14,9 @@ const char * input_state_m[] = {
     [INPUT_FILE_READ_FAIL] = "Ошибка при чтении файла :(",
     [FILE_READ_SUCCESS] = "Файл прочитан! ^..^",
     [INPUT_FILE_CLOSE_FAIL] = "Не удается закрыть прочитанный файл :(",
-    [BMP_HEADER_READ_FAIL] = "Не удается прочитать заголовок BMP файла :("
+    [BMP_HEADER_READ_FAIL] = "Не удается прочитать заголовок BMP файла :(",
+    [BMP_IMAGE_READ_SUCCESS] = "Успешное чтение данных картинки!",
+    [BMP_IMAGE_READ_FAIL] = "Не получилось считать данные картинки :("
 };
 
 const char * output_state_m[] = {
