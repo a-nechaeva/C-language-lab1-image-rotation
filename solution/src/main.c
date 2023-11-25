@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "image/image.h"
 #include "file_work/file_work.h"
+#include "bmp/bmp.h"
 
 extern const char * args_state_m[];
 extern const char * input_state_m[];
@@ -30,9 +31,17 @@ int main( int argc, char** argv ) {
     struct image input_image = {0};
 
     // здесь процесс чтения из файла и сохранения данных в структуре
-    print_success(input_state_m[FILE_READ_SUCCESS]);
+    enum input_state read_and_create_image = from_bmp_to_image(input_file, &input_image);
 
-    //здесь вызов функции поворота картинки
+    if (read_and_create_image == FILE_READ_SUCCESS) {
+        print_success(input_state_m[FILE_READ_SUCCESS]);
+        //здесь вызов функции поворота картинки
+        
+    } else {
+        print_fail(input_state_m[read_and_create_image]);
+        return 1;
+    }
+
 
     if (fclose(input_file) == -1) {
         print_fail(input_state_m[INPUT_FILE_CLOSE_FAIL]);
