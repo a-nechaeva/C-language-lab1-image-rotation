@@ -20,9 +20,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f69ed46e-722c-4172-96cf-072d3e1bd7d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f69ed46e-722c-4172-96cf-072d3e1bd7d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +45,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2XL6nwic3QRdd2EMm11D9rO6qPm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -71,13 +72,19 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Языки программирования\assignment-image-rotation\solution\include\bmp" />
+      <recent name="C:\Users\user\Desktop\Языки программирования\assignment-image-rotation\solution\include\file_work" />
       <recent name="C:\Users\user\Desktop\Языки программирования\assignment-image-rotation\solution\include" />
       <recent name="C:\Users\user\Desktop\Языки программирования\assignment-image-rotation\solution\include\transform" />
       <recent name="C:\Users\user\Desktop\Языки программирования\assignment-image-rotation\solution\include\image" />
-      <recent name="C:\Users\user\Desktop\Языки программирования\assignment-image-rotation\solution\include\bmp_read" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.image-transformer">
+  <component name="RunManager" selected="CTest Application.All CTest">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="check" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="image-transformer" TARGET_NAME="check" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -120,7 +127,7 @@
       <workItem from="1700003929778" duration="34000" />
       <workItem from="1700300688335" duration="1233000" />
       <workItem from="1700484274055" duration="2539000" />
-      <workItem from="1700924695580" duration="10000" />
+      <workItem from="1700924695580" duration="26779000" />
     </task>
     <servers />
   </component>
