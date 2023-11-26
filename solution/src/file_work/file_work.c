@@ -1,6 +1,3 @@
-//
-// Created by user on 25.11.2023.
-//
 #include "stdio.h"
 #include "file_work/file_work.h"
 
@@ -30,7 +27,7 @@ const char * output_state_m[] = {
 
 const char * transform_state_m[] = {
     [ROTATION_FAIL] = "Error during rotation :(",
-    [ROTATION_SUCCESS] = "Rotation is success! ^. .^ "
+    [ROTATION_SUCCESS] = "Rotation is success! ^..% "
 };
 
 void print_success(const char * m) {

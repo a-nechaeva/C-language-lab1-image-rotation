@@ -1,6 +1,3 @@
-//
-// Created by user on 27.10.2023.
-//
 #include <stdio.h>
 #include <stdint.h>
 
@@ -17,6 +14,7 @@ struct pixel {
 };
 struct image create_space_for_image(uint64_t width, uint64_t height);
 
+void free_image(struct image * image);
 
 
-#endif //IMAGE_TRANSFORMER_IMAGE_H
+#endif

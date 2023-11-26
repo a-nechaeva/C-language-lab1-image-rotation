@@ -1,7 +1,3 @@
-//
-// Created by user on 25.11.2023.
-//
-
 #ifndef IMAGE_TRANSFORMER_FILE_WORK_H
 #define IMAGE_TRANSFORMER_FILE_WORK_H
 
@@ -39,4 +35,4 @@ void print_success(const char * m);
 void print_fail(const char * e);
 
 
-#endif //IMAGE_TRANSFORMER_FILE_WORK_H
+#endif
