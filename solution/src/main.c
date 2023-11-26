@@ -24,7 +24,7 @@ int main( int argc, char** argv ) {
     char * input_file_name = argv[1];
     char * output_file_name = argv[2];
 
-    FILE * input_file = fopen(input_file_name, "r");
+    FILE * input_file = fopen(input_file_name, "rb");
     if (input_file == NULL) {
         print_fail(input_state_m[INPUT_FILE_OPEN_FAIL]);
         return -1;
@@ -43,7 +43,6 @@ int main( int argc, char** argv ) {
         return 1;
     }
 
-    //здесь вызов функции поворота картинки
     struct image * rotate_image = malloc(sizeof(struct image));
     enum transform_state state_of_rotation = rotation(input_image, rotate_image);
     if (state_of_rotation != ROTATION_SUCCESS) {
@@ -56,7 +55,7 @@ int main( int argc, char** argv ) {
         return -1;
     }
 
-    FILE * output_file = fopen(output_file_name, "w");
+    FILE * output_file = fopen(output_file_name, "wb");
     if (output_file == NULL) {
         print_fail(output_state_m[OUTPUT_FILE_OPEN_FAIL]);
         return -1;

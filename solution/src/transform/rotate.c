@@ -18,6 +18,8 @@ enum transform_state rotation(struct image input_image, struct image * rotate_im
             rotate_image->pixels[height - i + height * j - 1] = input_image.pixels[j + width * i];
         }
     }
+    rotate_image->width = height;
+    rotate_image->height = width;
 
     return ROTATION_SUCCESS;
 }

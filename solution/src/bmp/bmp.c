@@ -44,7 +44,7 @@ static uint32_t get_padding(uint32_t width) {
    // return width % 4;
     return (4 - width * 3 % 4) == 0 ? 0 : 4 - width * 3 % 4;
 }
-//ЗДЕСЬ ВЫПАДАЕТ ОШИБКА!
+//ЗДЕСЬ ВЫПАДАЕТ ОШИБКА! ПРОШЛА после смены r на rb
 enum input_state bmp_image_data_reader(FILE * input_f, struct image * imag) {
     uint64_t width = imag -> width;
     for (size_t i = 0; i < imag -> height; i++) {
@@ -97,10 +97,10 @@ static struct bmp_header generate_header(uint32_t width, uint32_t height) {
     };
 }
 
-enum output_state bmp_image_data_writer(FILE * output_f, struct image * image) {
-    for (size_t i = 0; i < image -> height; ++i) {
-        uint32_t width = image -> width;
-        if ((fwrite(&image -> pixels[i * width], sizeof(struct pixel), width, output_f) != width)
+enum output_state bmp_image_data_writer(FILE * output_f, struct image * imag) {
+    uint64_t width = imag -> width;
+    for (size_t i = 0; i < imag -> height; i++) {
+        if ((fwrite(&imag -> pixels[i * width], sizeof(struct pixel), width, output_f) != width)
             || (fseek(output_f, get_padding(width), SEEK_CUR) != 0)) {
             return BMP_IMAGE_WRITE_FAIL;
         }

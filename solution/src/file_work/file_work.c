@@ -12,7 +12,7 @@ const char * args_state_m[] = {
 const char * input_state_m[] = {
     [INPUT_FILE_OPEN_FAIL] = "Can't open file for reading :(",
     [INPUT_FILE_READ_FAIL] = "Error during reading file :(",
-    [FILE_READ_SUCCESS] = "File has read! ^..^",
+    [FILE_READ_SUCCESS] = "File has read! ^..%",
     [INPUT_FILE_CLOSE_FAIL] = "Can't close input file :(",
     [BMP_HEADER_READ_FAIL] = "Can't read header of BMP :(",
     [BMP_IMAGE_READ_SUCCESS] = "Reading image data is success!",
@@ -20,17 +20,17 @@ const char * input_state_m[] = {
 };
 
 const char * output_state_m[] = {
-    [OUTPUT_FILE_OPEN_FAIL] = "Не удается открыть файл для записи :(",
-    [OUTPUT_FILE_WRITE_FAIL] = "Ошибка записи данных в файл :(",
-    [FILE_WRITE_SUCCESS] = "Запись в файл прошла успешно! ^..^",
-    [OUTPUT_FILE_CLOSE_FAIL] = "Не удается закрыть файл с записанными данными :(",
-    [BMP_HEADER_WRITE_FAIL] = "Ошибка при записи заголовка BMP файла :(",
-    [BMP_IMAGE_WRITE_FAIL] = "Ошибка при записи данных картинки в BMP файл"
+    [OUTPUT_FILE_OPEN_FAIL] = "Can´t open file for writing :(",
+    [OUTPUT_FILE_WRITE_FAIL] = "Error during writing file :(",
+    [FILE_WRITE_SUCCESS] = "File has written! ^..%",
+    [OUTPUT_FILE_CLOSE_FAIL] = "Can't close output file :(",
+    [BMP_HEADER_WRITE_FAIL] = "Can't write header of BMP :(",
+    [BMP_IMAGE_WRITE_FAIL] = "Can't write BMP data :("
 };
 
 const char * transform_state_m[] = {
-    [ROTATION_FAIL] = "Возникла ошибка при повороте картинки :(",
-    [ROTATION_SUCCESS] = "Поворот картинки осуществлен успешно! ^. .^ "
+    [ROTATION_FAIL] = "Error during rotation :(",
+    [ROTATION_SUCCESS] = "Rotation is success! ^. .^ "
 };
 
 void print_success(const char * m) {
