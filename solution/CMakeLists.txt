@@ -5,8 +5,6 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS
 )
 
 add_executable(image-transformer ${sources}
-        src/bmp_read/bmp_reader.c
-        include/bmp_read/bmp_reader.h
         src/image/image.c
         include/image/image.h
         src/transform/rotate.c

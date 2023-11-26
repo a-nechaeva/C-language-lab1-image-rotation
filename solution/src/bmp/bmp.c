@@ -41,9 +41,10 @@ struct bmp_header bmp_header_reader(FILE * input_f) {
 }
 
 static uint32_t get_padding(uint32_t width) {
-    return width % 4;
+   // return width % 4;
+    return (4 - width * 3 % 4) == 0 ? 0 : 4 - width * 3 % 4;
 }
-
+//ЗДЕСЬ ВЫПАДАЕТ ОШИБКА!
 enum input_state bmp_image_data_reader(FILE * input_f, struct image * image) {
     for (size_t i = 0; i < image -> height; ++i) {
         uint32_t width = image -> width;
