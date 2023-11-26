@@ -1,6 +1,6 @@
 #include "image/image.h"
-#include "file_work/file_work.h"
 #include "bmp/bmp.h"
+#include "file_work/file_work.h"
 #include "transform/rotate.h"
 #include <stdio.h>
 
