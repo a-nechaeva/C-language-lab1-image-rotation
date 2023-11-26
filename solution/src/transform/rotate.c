@@ -1,7 +1,7 @@
-#include <malloc.h>
 #include "transform/rotate.h"
 #include "file_work/file_work.h"
 #include "image/image.h"
+#include <malloc.h>
 
 enum transform_state rotation(struct image input_image, struct image * rotate_image) {
     uint64_t width = input_image.width;

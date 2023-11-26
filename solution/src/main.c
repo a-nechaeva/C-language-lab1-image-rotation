@@ -1,8 +1,8 @@
-#include <stdio.h>
 #include "image/image.h"
 #include "file_work/file_work.h"
 #include "bmp/bmp.h"
 #include "transform/rotate.h"
+#include <stdio.h>
 
 extern const char * args_state_m[];
 extern const char * input_state_m[];
