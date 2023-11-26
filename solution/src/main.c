@@ -3,6 +3,7 @@
 #include "image/image.h"
 #include "file_work/file_work.h"
 #include "bmp/bmp.h"
+#include "transform/rotate.h"
 
 extern const char * args_state_m[];
 extern const char * input_state_m[];
@@ -36,17 +37,19 @@ int main( int argc, char** argv ) {
 
     if (read_and_create_image == FILE_READ_SUCCESS) {
         print_success(input_state_m[FILE_READ_SUCCESS]);
-        //здесь вызов функции поворота картинки
-        struct image * rotate_image = malloc(sizeof(struct image));
-        enum transform_state state_of_rotation = rotation(input_image, rotate_image);
-        if (state_of_rotation != ROTATION_SUCCESS) {
-            print_fail(transform_state_m[state_of_rotation]);
-        }
+
     } else {
         print_fail(input_state_m[read_and_create_image]);
         return 1;
     }
 
+    //здесь вызов функции поворота картинки
+    struct image * rotate_image = malloc(sizeof(struct image));
+    enum transform_state state_of_rotation = rotation(input_image, rotate_image);
+    if (state_of_rotation != ROTATION_SUCCESS) {
+        print_fail(transform_state_m[state_of_rotation]);
+        return 1;
+    }
 
     if (fclose(input_file) == -1) {
         print_fail(input_state_m[INPUT_FILE_CLOSE_FAIL]);
@@ -58,8 +61,12 @@ int main( int argc, char** argv ) {
         print_fail(output_state_m[OUTPUT_FILE_OPEN_FAIL]);
         return -1;
     }
-    // здесь процесс записи в файл
+    enum output_state write_and_save_st = from_image_to_bmp(output_file, rotate_image);
 
+    if (write_and_save_st != FILE_WRITE_SUCCESS) {
+        print_fail(output_state_m[write_and_save_st]);
+        return -1;
+    }
     print_success(output_state_m[FILE_WRITE_SUCCESS]);
 
     if (fclose(output_file) == -1) {
