@@ -45,10 +45,11 @@ static uint32_t get_padding(uint32_t width) {
     return (4 - width * 3 % 4) == 0 ? 0 : 4 - width * 3 % 4;
 }
 //ЗДЕСЬ ВЫПАДАЕТ ОШИБКА!
-enum input_state bmp_image_data_reader(FILE * input_f, struct image * image) {
-    for (size_t i = 0; i < image -> height; ++i) {
-        uint32_t width = image -> width;
-        if ((fread(&image -> pixels[i * width], sizeof(struct pixel), width, input_f) != width)
+enum input_state bmp_image_data_reader(FILE * input_f, struct image * imag) {
+    uint64_t width = imag -> width;
+    for (size_t i = 0; i < imag -> height; i++) {
+        // здесь почему-то меньше
+        if ((fread(&imag -> pixels[i * width], sizeof(struct pixel), width, input_f) != width)
                 || (fseek(input_f, get_padding(width), SEEK_CUR) != 0)) {
             return BMP_IMAGE_READ_FAIL;
         }
@@ -64,7 +65,6 @@ enum input_state from_bmp_to_image(FILE* in, struct image* img ) {
     }
     uint32_t orig_image_width = header.width;
     uint32_t orig_image_height = header.height;
-    //uint32_t padding
     *img = create_space_for_image(orig_image_width, orig_image_height);
 
     enum input_state state_read = bmp_image_data_reader(in, img);
