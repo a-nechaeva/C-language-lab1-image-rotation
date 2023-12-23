@@ -13,7 +13,8 @@ const char * input_state_m[] = {
     [INPUT_FILE_CLOSE_FAIL] = "Can't close input file :(",
     [BMP_HEADER_READ_FAIL] = "Can't read header of BMP :(",
     [BMP_IMAGE_READ_SUCCESS] = "Reading image data is success!",
-    [BMP_IMAGE_READ_FAIL] = "Can't read image data :("
+    [BMP_IMAGE_READ_FAIL] = "Can't read image data :(",
+    [MEM_FAIL] = "Memory error during write input image :("
 };
 
 const char * output_state_m[] = {

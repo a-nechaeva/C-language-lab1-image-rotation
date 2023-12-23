@@ -59,6 +59,10 @@ enum input_state from_bmp_to_image(FILE* in, struct image* image ) {
     uint32_t orig_image_height = header.height;
     *image = create_space_for_image(orig_image_width, orig_image_height);
 
+    if ((*image).width < 0) {
+        return MEM_FAIL;
+    }
+
     enum input_state state_read = bmp_image_data_reader(in, image);
     if ( state_read != FILE_READ_SUCCESS) {
         return state_read;

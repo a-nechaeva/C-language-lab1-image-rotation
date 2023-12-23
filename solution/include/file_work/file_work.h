@@ -13,6 +13,7 @@ enum input_state {
     INPUT_FILE_CLOSE_FAIL,
     BMP_HEADER_READ_FAIL,
     BMP_IMAGE_READ_FAIL,
+    MEM_FAIL,
     BMP_IMAGE_READ_SUCCESS
 };
 
